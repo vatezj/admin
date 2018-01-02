@@ -1,0 +1,3 @@
+requirejs(['inspinia'], function ($, metisMenu) {
+
+})
