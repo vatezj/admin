@@ -6,6 +6,7 @@
  */
 
 
+
 $(document).ready(function () {
 
 
@@ -15,6 +16,8 @@ $(document).ready(function () {
     } else {
         $('body').removeClass('body-small')
     }
+
+
 
     // MetsiMenu
     $('#side-menu').metisMenu();

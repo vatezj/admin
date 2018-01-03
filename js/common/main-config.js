@@ -6,6 +6,7 @@
  */
 var scriptTag = document.getElementById('scriptTag');
 var cdnUri = '../common/';
+var cdncssUri = '../../css/';
 /**
  * 必加载项
  * jquery
@@ -60,6 +61,11 @@ var cdnUri = '../common/';
  */
 if (scriptTag) {
     require.config({
+        map: {  
+            '*': {  
+                'css': cdnUri+'css.min'  
+            }  
+        }, 
         paths: {
             jquery: cdnUri + 'jquery-2.1.1',
             jqueryUi: cdnUri + 'jquery-ui-1.10.4.min',
@@ -86,6 +92,7 @@ if (scriptTag) {
             flotSpline:cdnUri + 'plugins/flot/jquery.flot.spline',
             flotResize:cdnUri + 'plugins/flot/jquery.flot.resize',
             flotPie:cdnUri + 'plugins/flot/jquery.flot.pie',
+            toastr:cdnUri + 'plugins/toastr/toastr.min',
         },
         shim: {
             'jquery': {
@@ -104,6 +111,11 @@ if (scriptTag) {
             'sweetAlert': {
                 deps: ['jquery']
             },
+            'toastr':
+            {
+                deps: ['jquery','css!'+cdncssUri+'plugins/toastr/toastr.min.css'],
+                exports: 'toastr' 
+            },
             'slimScroll': {
                 deps: ['jquery'],
                 exports: 'slimScroll'
@@ -113,7 +125,7 @@ if (scriptTag) {
                 exports: 'flot'
             },
             'inspinia': {
-                deps: ['jquery','jqueryUi','bootstrap','metisMenu','slimScroll']
+                deps: ['jquery','jqueryUi','bootstrap','metisMenu','slimScroll','toastr']
             },
             'uploadify': {
                 deps: ['jquery']
